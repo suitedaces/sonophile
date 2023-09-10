@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components {
+	.border-bottom {
+		@apply border-b border-gray-800;
+	}
+}
+.shadow-neon {
+  text-shadow: 
+    0 0 5px #FFFF00,   /* Neon Yellow */
+    0 0 10px #FFFF00, 
+    0 0 15px #ADFF2F,  /* Green Yellow */
+    0 0 20px #ADFF2F, 
+    0 0 25px #00FF00,  /* Neon Green */
+    0 0 30px #00FF00, 
+    0 0 35px #00FF00;
+}
