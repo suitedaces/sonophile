@@ -76,7 +76,7 @@ const Mood = () => {
 				</div>
 			</div>
 
-			<button className='text-center px-4 py-2 rounded-full overflow-shadow bg-green-500 hover:bg-green-900' onClick={go}>Search</button>
+			<button className='text-center px-10 py-4 rounded-full overflow-shadow bg-green-500 hover:bg-green-900' onClick={go}>Search</button>
 
 			{rex ?
 				<div className='mt-20' >
