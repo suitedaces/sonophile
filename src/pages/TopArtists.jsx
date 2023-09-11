@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { getUsersTopArtists, getUsersTopArtistsSinceWeeks, getUsersTopArtistsSinceAnYear } from '../spotifyApi';
+import { getUsersTopArtists, getUsersTopArtistsSinceWeeks, getUsersTopArtistsSinceAYear } from '../spotifyApi';
 import { ArtistCard } from '../components/Items';
 import { FadeLoader } from 'react-spinners';
 
@@ -9,7 +9,7 @@ const TopArtists = () => {
     const [activeTab, setActiveTab] = useState('4 Weeks');  // Default to '6 Months'
 
     useEffect(() => {
-        getUsersTopArtists().then(res => setArtists(res.data.items));
+        getUsersTopArtistsSinceWeeks().then(res => setArtists(res.data.items));
     }, []);
 
     const bringWeeks = () => {
@@ -24,7 +24,7 @@ const TopArtists = () => {
 
     const bringYear = () => {
         setActiveTab('Over an Year');
-        getUsersTopArtistsSinceAnYear().then(res => setArtists(res.data.items));
+        getUsersTopArtistsSinceAYear().then(res => setArtists(res.data.items));
     }
 
     return (

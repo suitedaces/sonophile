@@ -1,6 +1,6 @@
 
 import { useState } from 'react'
-import { getRex } from '../spotifyApi'
+import { getRecommendations } from '../spotifyApi'
 
 
 const Mood = () => {
@@ -39,7 +39,7 @@ const Mood = () => {
 
 	const go = () => {
 		
-		getRex(genre.toLowerCase(), mood.features)
+		getRecommendations(genre.toLowerCase(), mood.features)
 			.then(res => {
 				setRex(res.data)
 				setTimeout(() => {

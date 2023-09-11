@@ -2,17 +2,15 @@ import { useState, useEffect } from 'react'
 import { SongCard } from '../components/Items'
 import { Link } from 'react-router-dom'
 import { FadeLoader } from 'react-spinners'
-import { getUsersTopTracks, getUsersTopTracksSinceWeeks, getUsersTopTracksSinceAnYear } from '../spotifyApi'
+import { getUsersTopTracks, getUsersTopTracksSinceWeeks, getUsersTopTracksSinceAYear } from '../spotifyApi'
 
-const TopTracks = () => 
-{
+const TopTracks = () => {
 
 	const [activeTab, setActiveTab] = useState('4 Weeks');
 	const [tracks, setTracks] = useState(null)
 
-	useEffect(() => 
-	{
-		getUsersTopTracks().then(res =>setTracks(res.data.items))		
+	useEffect(() => {
+		getUsersTopTracksSinceWeeks().then(res =>setTracks(res.data.items))		
 
 	}, [])
 
@@ -28,7 +26,7 @@ const TopTracks = () =>
 
 	const bringYear = () => {
         setActiveTab('All Time');
-		getUsersTopTracksSinceAnYear().then(res => setTracks(res.data.items))		
+		getUsersTopTracksSinceAYear().then(res => setTracks(res.data.items))		
 	}
 
 	return (
