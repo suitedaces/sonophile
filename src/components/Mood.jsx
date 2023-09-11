@@ -1,6 +1,6 @@
 
 import { useState } from 'react'
-import { getRex } from '../server/spotify'
+import { getRex } from './spotify'
 
 
 const Mood = () => {
@@ -24,7 +24,7 @@ const Mood = () => {
 				q = 'minValence=0.8';
 				break;
 			case 'Sad':
-				q = 'maxValence=0.4';
+				q = 'maxValence=0.3&maxEnergy=0.4';
 				break;
 			case 'Hype':
 				q = 'minEnergy=0.8';
@@ -33,7 +33,7 @@ const Mood = () => {
 				q = 'maxEnergy=0.3&minValence=0.3';
 				break;
 			case 'Angry':
-				q = 'maxValence=0.2&minEnergy=0.85';
+				q = 'maxValence=0.3&minEnergy=0.8';
 				break;
 			default:
 				console.log('Hmmm.. not sure what happened here.');
@@ -61,7 +61,7 @@ const Mood = () => {
 				<h2 className="heading mb-3 font-bold">Select Mood</h2>
 				<div className='grid grid-cols-2 md:grid-cols-5 gap-3'>
 					{moods.map(m => 
-						<div className={`${mood?.mood===m.title ? 'bg-green-500' : 'bg-gray-900'} h-20 rounded flex justify-center items-center text-xl cursor-pointer hover:text-spotify shadow-lg transform transition-transform duration-200 hover:-translate-y-1`} key={m.title} onClick={() => setParams(m.title)}>
+						<div className={`${mood?.mood===m.title ? 'bg-green-500' : 'bg-gray-900'} h-20 rounded-full flex justify-center items-center text-xl cursor-pointer hover:text-spotify shadow-lg transform transition-transform duration-200 hover:-translate-y-1`} key={m.title} onClick={() => setParams(m.title)}>
 							<h2>{m.emoji}</h2>
 							&nbsp;
 							<h2>{m.title}</h2>
@@ -74,7 +74,7 @@ const Mood = () => {
 				<h2 className="heading mb-3 font-bold">Select Genre</h2>
 				<div className="grid grid-cols-3 gap-3 md:grid-cols-4" >
 					{allGenres.map(g => 
-						<h2 className={`${genre===g ? 'bg-green-500' : 'bg-gray-900'} p-3 rounded-full cursor-pointer hover:text-spotify shadow-lg transform transition-transform duration-200 hover:-translate-y-1`} key={g} onClick={() => setGenre(g)}>
+						<h2 className={`${genre===g ? 'bg-green-500' : 'bg-gray-900'} p-3 rounded-full cursor-pointer hover:text-spotify shadow-lg transform transition-transform duration-200 hover:-translate-y-1 text-center`} key={g} onClick={() => setGenre(g)}>
 							{g}
 						</h2>)}
 				</div>

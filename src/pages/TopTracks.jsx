@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { SongCard } from '../components/Items'
 import { Link } from 'react-router-dom'
 import { FadeLoader } from 'react-spinners'
-import { getUsersTopTracks, getUsersTopTracksSinceWeeks, getUsersTopTracksSinceAnYear } from '../server/spotify'
+import { getUsersTopTracks, getUsersTopTracksSinceWeeks, getUsersTopTracksSinceAnYear } from '../components/spotify'
 
 const TopTracks = () => 
 {
@@ -66,7 +66,9 @@ const TopTracks = () =>
 					</div>
 				</div>
 				:
-				<FadeLoader className="flex justify-center items-center h-screen" color="#1DB954" />
+				<div className="flex justify-center items-center h-full pt-40"> {/* <-- This is the new container div */}
+					<FadeLoader color="#1DB954" />
+				</div>
 			}
 		</div>
 	)

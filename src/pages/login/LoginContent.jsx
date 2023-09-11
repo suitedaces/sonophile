@@ -5,7 +5,7 @@ export const LoginContent = () => {
       <div className="splash__container w-full mx-8 z-10 sm:mx-12 md:mx-24 xl:mx-auto">
         <div className="md:grid md:grid-cols-2 md:gap-12">
           <div className="md:self-center">
-            <p className="mb-3 ml-3 text-7xl border-2 tracking-tight md:text-8xl md:mb-8 border-yellow-600 font-bold font-sans">
+            <p className="mb-3 ml-3 text-7xl tracking-tight md:text-8xl md:mb-8 font-bold font-sans">
             Spotistics 🤓
             </p>
             <div className="flex my-8 md:my-12">

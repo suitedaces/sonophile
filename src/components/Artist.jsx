@@ -1,6 +1,6 @@
 import  { useEffect, useState } from 'react'
 import { useParams, Link, Route, Routes } from 'react-router-dom'
-import { getArtist, getArtistsTopTracks, getArtistsAlbums, getArtistsRelatedArtists, isArtistFollowedByUser, followArtist, unfollowArtist } from '../server/spotify'
+import { getArtist, getArtistsTopTracks, getArtistsAlbums, getArtistsRelatedArtists, isArtistFollowedByUser, followArtist, unfollowArtist } from '../components/spotify'
 import { TrackItem, ArtistCard } from './Items'
 import Album from './Album'
 import { convertMS } from '../helper'
@@ -93,9 +93,9 @@ const ArtistInfo = () => {
 
 						<div className="table justify-between w-full">
 							<div className="w-4/4 lg:w-auto flex justify-between text-gray-700 mb-4 tracking-wider text-sm border-gray-800 sticky top-0 pt-8 bg-black border-bottom">
-									<div className='w-12/12 lg:w-7/12 text-left'>TRACK</div>
-									<div className='w-4/12 hidden lg:block text-left'>ALBUM</div>
-									<div className='w-1/12 hidden lg:block text-left'>DURATION</div>
+									<div className='w-12/12 lg:w-7/12 text-left text-gray-200'>TRACK</div>
+									<div className='w-4/12 hidden lg:block text-left text-gray-200'>ALBUM</div>
+									<div className='w-1/12 hidden lg:block text-left text-gray-200'>DURATION</div>
 								</div>
 					
 

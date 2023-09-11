@@ -128,8 +128,11 @@ export const headers = {
 
 export const getUser = () => axios.get('https://api.spotify.com/v1/me', {headers})
 
+export const getUsersTopArtistsByRange = (timeRange) => axios.get(`https://api.spotify.com/v1/me/top/artists?limit=50&time_range=${timeRange}`, {headers})
+export const getUsersTopTracksByRange = (timeRange) => axios.get(`https://api.spotify.com/v1/me/top/tracks?limit=50&time_range=${timeRange}`, {headers})
+
 export const getUsersTop9Artists = () => axios.get('https://api.spotify.com/v1/me/top/artists?limit=9&time_range=long_term', {headers})
-export const getUsersTopArtists = () => axios.get('https://api.spotify.com/v1/me/top/artists?limit=50', {headers})
+export const getUsersTopArtists = () => axios.get(`https://api.spotify.com/v1/me/top/artists?limit=50`, {headers})
 export const getUsersTopArtistsSinceWeeks = () => axios.get('https://api.spotify.com/v1/me/top/artists?limit=50&time_range=short_term', {headers})
 export const getUsersTopArtistsSinceAnYear = () => axios.get('https://api.spotify.com/v1/me/top/artists?limit=50&time_range=long_term', {headers})
 

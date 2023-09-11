@@ -1,8 +1,9 @@
 import { useParams, Link } from 'react-router-dom'
-import { getAnAlbum, getAnAlbumsTracks } from '../server/spotify'
+import { getAnAlbum, getAnAlbumsTracks } from '../components/spotify'
 import { TrackItem } from './Items'
 import { useState, useEffect } from 'react'
 import { convertMS, cleaner } from '../helper'
+import { FadeLoader } from 'react-spinners'
 
 
 const Album = () => 
@@ -57,7 +58,11 @@ const Album = () =>
 						)}
 					</div>
 				</div>
-			: <div className='loader justify-center'>Loading, Please Wait</div>}
+			: 
+			<div className="flex justify-center items-center h-screen">
+				<FadeLoader color="#1DB954" />
+			</div>
+		}
 		</div>
 	)
 }

@@ -29,8 +29,8 @@ export const SongCard = ({index, imageURL, subItem, itemName}) => {
 					</div>
 				</div>
 				<div className='w-40'> {/* Adjusted width to match image width */}
-					<h3 className='mt-1 text-gray-400 truncate' >{itemName}</h3>
-					<div className='text-sm text-gray-700 mb-2'>
+					<h3 className='mt-1 text-gray-100 truncate' >{itemName}</h3>
+					<div className='text-sm text-gray-500 mb-2'>
 						{Array.isArray(subItem) ? 
 							<h3 className='truncate'>{cleaner(subItem)}</h3> 
 							: 
@@ -51,7 +51,7 @@ export const TrackItem = ({songName, songArtists, picURL}) => {
 			<div className='ml-4 truncate'>
 				<h4 className='text-gray-400 hover:text-white truncate' >{songName}</h4>
 					{Array.isArray(songArtists) && songArtists ?
-						<h3 className='text-sm text-gray-700 truncate text-center'>{cleaner(songArtists)}</h3>
+						<h3 className='text-sm text-gray-700 truncate'>{cleaner(songArtists)}</h3>
 						:
 						<h3 className='text-sm text-gray-700 truncate' >{songArtists}</h3>
 					}

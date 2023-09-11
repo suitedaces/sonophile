@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { getUser } from '../server/spotify';
+import { getUser } from './spotify';
 
 function Navbar() {
 

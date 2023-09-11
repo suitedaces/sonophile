@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { getUsersTopArtists, getUsersTopArtistsSinceWeeks, getUsersTopArtistsSinceAnYear } from '../server/spotify';
+import { getUsersTopArtists, getUsersTopArtistsSinceWeeks, getUsersTopArtistsSinceAnYear } from '../components/spotify';
 import { ArtistCard } from '../components/Items';
+import { FadeLoader } from 'react-spinners';
 
 const TopArtists = () => {
     const [artists, setArtists] = useState(null);
@@ -61,7 +62,9 @@ const TopArtists = () => {
                     </div>
                 </div>
             ) : (
-                <div className='loader text-center'>Loading, Please Wait</div>
+				<div className="flex justify-center items-center h-full pt-40"> {/* <-- This is the new container div */}
+					<FadeLoader color="#1DB954" />
+				</div>
             )}
         </div>
     );
