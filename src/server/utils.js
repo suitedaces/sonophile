@@ -1,10 +1,9 @@
-/* eslint-disable no-unused-vars */
 import axios from "axios";
 import querystring from "querystring";
 import { User } from "./mongoDb.js"
 import { CLIENT_ID, CLIENT_SECRET, REDIRECT_URI } from "./config.js";
 
-const getUsersTopArtistsByRange = async (range, access_token) => {
+export const getUsersTopArtistsByRange = async (range, access_token) => {
     return axios.get(`https://api.spotify.com/v1/me/top/artists?time_range=${range}&limit=50`, {
         headers: {
             'Authorization': `Bearer ${access_token}`
@@ -12,7 +11,7 @@ const getUsersTopArtistsByRange = async (range, access_token) => {
     });
 };
 
-const getUsersTopTracksByRange = async (range, access_token) => {
+export const getUsersTopTracksByRange = async (range, access_token) => {
     return axios.get(`https://api.spotify.com/v1/me/top/tracks?time_range=${range}&limit=50`, {
         headers: {
             'Authorization': `Bearer ${access_token}`
@@ -20,7 +19,7 @@ const getUsersTopTracksByRange = async (range, access_token) => {
     });
 };
 
-const handleTokenExchange = async (code) => {
+export const handleTokenExchange = async (code) => {
     return axios({
         method: 'post',
         url: 'https://accounts.spotify.com/api/token',
@@ -36,7 +35,7 @@ const handleTokenExchange = async (code) => {
     });
 };
 
-const fetchUserProfile = async (access_token) => {
+export const fetchUserProfile = async (access_token) => {
     return axios.get('https://api.spotify.com/v1/me', {
         headers: {
             'Authorization': `Bearer ${access_token}`
@@ -44,7 +43,7 @@ const fetchUserProfile = async (access_token) => {
     });
 };
 
-const fetchUserTopData = async (access_token) => {
+export const fetchUserTopData = async (access_token) => {
     const timeRanges = ['short_term', 'medium_term', 'long_term'];
     const currentLoginData = {
         timestamp: new Date(),
@@ -73,7 +72,7 @@ const fetchUserTopData = async (access_token) => {
     return currentLoginData;
 };
 
-const updateOrCreateUser = async (spotifyId, name, currentLoginData) => {
+export const updateOrCreateUser = async (spotifyId, name, currentLoginData) => {
     const existingUser = await User.findOne({ spotifyId: spotifyId });
 
     if (existingUser) {
@@ -92,7 +91,7 @@ const updateOrCreateUser = async (spotifyId, name, currentLoginData) => {
 
 
 
-const generateRandomString = length => {
+export const generateRandomString = length => {
     let text = '';
     const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     for (let i = 0; i < length; i++) {

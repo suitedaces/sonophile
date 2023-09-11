@@ -1,8 +1,32 @@
-# React + Vite
+# Spotistics 🤓
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Spotistics allows anyone to log in see their Spotify statistics and receive mood-based recommendations ⚡️
 
-Currently, two official plugins are available:
+## 🛠️ Tech Stack:
+- **MongoDB 🍃**: User data storage.
+- **Express.js 🚂**: Backend framework.
+- **React ⚛️**: UI development.
+- **Node.js 🟢**: Backend runtime.
+- **TailwindCSS 🌬️**: UI styling.
+- **Vite ⚡**: Development & build tool.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌟 Features:
+- 🎭 **Mood-based Song Recommendation**: Curated Spotify tracks based on mood and genre.
+- 🎧 **Top Artists & Tracks**: View your top artists and tracks by 4 weeks, 6 months, and all-time favorites.
+- 🔒 **OAuth 2.0**: Secure user login and data access.
+
+## 🚀 Setup:
+1. `git clone https://github.com/suitedaces/spotistics.git`
+2. `npm install`
+3. `npm run dev`
+4. Open `http://localhost:3000`
+
+## 🤝 Contribute:
+Open an issue or submit a PR.
+
+## 📜 License:
+MIT
+
+---
+
+🔑 Set up OAuth environment variables before starting.
