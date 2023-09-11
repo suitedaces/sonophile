@@ -49,11 +49,11 @@ export const TrackItem = ({songName, songArtists, picURL}) => {
 				<img src={picURL} alt="track" className='object-cover'/>
 			</div>
 			<div className='ml-4 truncate'>
-				<h4 className='text-gray-400 hover:text-white truncate' >{songName}</h4>
+				<h4 className='text-gray-200 hover:text-white truncate' >{songName}</h4>
 					{Array.isArray(songArtists) && songArtists ?
-						<h3 className='text-sm text-gray-700 truncate'>{cleaner(songArtists)}</h3>
+						<h3 className='text-sm text-gray-500 truncate'>{cleaner(songArtists)}</h3>
 						:
-						<h3 className='text-sm text-gray-700 truncate' >{songArtists}</h3>
+						<h3 className='text-sm text-gray-500 truncate' >{songArtists}</h3>
 					}
 				
 			</div>

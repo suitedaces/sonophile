@@ -6,8 +6,7 @@ import { convertMS, cleaner } from '../helper'
 import { FadeLoader } from 'react-spinners'
 
 
-const Album = () => 
-{
+const Album = () => {
 	const {artistId, albumId} = useParams()
 
 	const [tracks, setTracks] = useState(null)

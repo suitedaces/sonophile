@@ -3,6 +3,7 @@ import { useQuery } from 'react-query'
 
 import { convertMS } from '../helper'
 import { ArtistCard, SongCard, TrackItem } from '../components/Items'
+import { FadeLoader } from 'react-spinners'
 import { getUser, getUsersTop9Artists, getFollowing, getUsersTop5Tracks, getPlaylists, getRecentlyPlayed, logOut } from '../spotifyApi'
 
 
@@ -24,8 +25,11 @@ const Home = () => {
 
 	useQuery("basics", getUserData)
 
-	if(data === undefined){
-		return <div className='loader' />
+	if(data === undefined) {
+		return (
+			<div className="flex justify-center items-center h-screen">
+				<FadeLoader color="#1DB954" />
+			</div>)
 	}
 
 	if(data[0]?.status !== 200){
@@ -33,9 +37,9 @@ const Home = () => {
 	}
 
 	return (
-		<div className='flex flex-col'>	
+		<>	
 			{data ? 
-				<main className='py-8 md:pb-12'>
+				<main className='flex flex-col py-8 md:pb-12'>
 				
 					{/* Hero */}
 					<div className='py-10'>
@@ -80,40 +84,35 @@ const Home = () => {
 					
 					
 					{/* Recently Played */}
-					
-					<div className='mt-10 md:mt-20 w-centerull sm:justify-start'>
+					<div className='mt-10 md:mt-20 w-full'>
 						<h2 className='mb-10 text-3xl heading font-bold '>Your recently played tracks..</h2>
 						<div className='mt-1 w-full'>
-							<div className="flex justify-between w-full">
-					
-								<div className="w-4/4 lg:w-auto flex justify-between text-gray-700 mb-4 tracking-wider text-sm border-gray-800 sticky top-0 pt-8 bg-black border-bottom">
-									<div className='w-12/12 lg:w-7/12 text-left'>SONG</div>
-									<div className='w-4/12 hidden lg:block text-left'>ALBUM</div>
-									<div className='w-1/12 hidden lg:block text-left'>DURATION</div>
-								</div>
-					
-								<span className="inline-block w-full">
-									{data[5].data.items.map(song => 
-										<div className="lg:flex text-gray-400 justify-between w-full object-contain" key={song.played_at}>
-											<div className="w-8/12 lg:w-7/12 truncate">
-												<Link to={`/track/${song.track.id}`}>
-													<TrackItem songName={song.track.name} songArtists={song.track.artists} songAlbum={song.track.album.name} picURL={song.track.album.images[1].url}/>
-												</Link>
-											</div>
-											<div className='w-4/12 hidden lg:block pr-4'>{song.track.album.name}</div>
-											<div className='w-1/12 hidden lg:block'>{convertMS(song.track.duration_ms)}</div>
-										</div>
-									)}
-								</span>
+							<div className="flex justify-between w-full mb-4 tracking-wider text-sm border-gray-800 sticky top-0 pt-8 bg-black border-bottom">
+								<div className='w-6/12 lg:w-7/12 text-left'>SONG</div>
+								<div className='w-4/12 hidden lg:block text-left'>ALBUM</div>
+								<div className='w-2/12 text-right lg:text-left'>DURATION</div>
 							</div>
+							{data[5].data.items.map(song => 
+								<div className="flex justify-between w-full object-contain text-gray-400 pb-4" key={song.played_at}>
+									<div className="w-6/12 lg:w-7/12 truncate">
+										<Link to={`/track/${song.track.id}`}>
+											<TrackItem songName={song.track.name} songArtists={song.track.artists} songAlbum={song.track.album.name} picURL={song.track.album.images[1].url}/>
+										</Link>
+									</div>
+									<div className='w-4/12 hidden lg:block pr-4'>{song.track.album.name}</div>
+									<div className='w-2/12 text-right lg:text-left'>{convertMS(song.track.duration_ms)}</div>
+								</div>
+							)}
 						</div>
 					</div>
-				{/* ends here */ }
 
 				</main>
-				:
-				<div className='loader' />}
-		</div>
+				: 
+				<div className="flex justify-center items-center h-screen transform -translate-y-12 mb-20">
+					<FadeLoader color="#1DB954" />
+				</div>	
+				}
+		</>
 	)
 }
 
