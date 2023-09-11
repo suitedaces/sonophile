@@ -16,9 +16,6 @@ export const convertMS = ( milliseconds ) => {
   return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
 }
 
-
-
-
 export const simplifyDate = (date) => {
 	return date.split('T')[0]
 }

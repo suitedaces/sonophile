@@ -1,5 +1,5 @@
 import { useParams, Link } from 'react-router-dom'
-import { getAnAlbum, getAnAlbumsTracks } from '../components/spotify'
+import { getAnAlbum, getAnAlbumsTracks } from '../spotifyApi'
 import { TrackItem } from './Items'
 import { useState, useEffect } from 'react'
 import { convertMS, cleaner } from '../helper'

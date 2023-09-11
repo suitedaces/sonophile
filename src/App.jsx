@@ -9,7 +9,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import Login from './pages/login/Login';
 import Album from './components/Album';
-import { accessToken } from './components/spotify';
+import { accessToken } from './spotifyApi';
 import { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Navbar from './components/Navbar';

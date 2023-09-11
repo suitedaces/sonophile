@@ -1,4 +1,4 @@
-import { logOut } from './spotify';
+import { logOut } from '../spotifyApi';
 // import { GithubButton } from 'react-github-btn';
 
 const Header = () => {

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { SongCard } from '../components/Items'
 import { Link } from 'react-router-dom'
 import { FadeLoader } from 'react-spinners'
-import { getUsersTopTracks, getUsersTopTracksSinceWeeks, getUsersTopTracksSinceAnYear } from '../components/spotify'
+import { getUsersTopTracks, getUsersTopTracksSinceWeeks, getUsersTopTracksSinceAnYear } from '../spotifyApi'
 
 const TopTracks = () => 
 {

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { getUsersTopArtists, getUsersTopArtistsSinceWeeks, getUsersTopArtistsSinceAnYear } from '../components/spotify';
+import { getUsersTopArtists, getUsersTopArtistsSinceWeeks, getUsersTopArtistsSinceAnYear } from '../spotifyApi';
 import { ArtistCard } from '../components/Items';
 import { FadeLoader } from 'react-spinners';
 

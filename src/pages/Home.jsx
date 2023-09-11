@@ -3,7 +3,7 @@ import { useQuery } from 'react-query'
 
 import { convertMS } from '../helper'
 import { ArtistCard, SongCard, TrackItem } from '../components/Items'
-import { getUser, getUsersTop9Artists, getFollowing, getUsersTop5Tracks, getPlaylists, getRecentlyPlayed, logOut } from '../components/spotify'
+import { getUser, getUsersTop9Artists, getFollowing, getUsersTop5Tracks, getPlaylists, getRecentlyPlayed, logOut } from '../spotifyApi'
 
 
 const getUserData = async() => 	{

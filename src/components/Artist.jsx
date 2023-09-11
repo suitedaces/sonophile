@@ -1,6 +1,6 @@
 import  { useEffect, useState } from 'react'
 import { useParams, Link, Route, Routes } from 'react-router-dom'
-import { getArtist, getArtistsTopTracks, getArtistsAlbums, getArtistsRelatedArtists, isArtistFollowedByUser, followArtist, unfollowArtist } from '../components/spotify'
+import { getArtist, getArtistsTopTracks, getArtistsAlbums, getArtistsRelatedArtists, isArtistFollowedByUser, followArtist, unfollowArtist } from '../spotifyApi'
 import { TrackItem, ArtistCard } from './Items'
 import Album from './Album'
 import { convertMS } from '../helper'
