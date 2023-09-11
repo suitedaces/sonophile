@@ -1,15 +1,14 @@
 
 import { useState } from 'react'
-import { getRex } from './spotify'
+import { getRex } from '../spotifyApi'
 
 
 const Mood = () => {
 	const moods = [
-		{title: 'Lit', emoji: '😄'},
+		{title: 'Happy', emoji: '😄'},
 		{title: 'Sad', emoji: '😢'},
-		{title: 'Hype', emoji: '⚡️'},
-		{title: 'Chill', emoji: '🧘🏽‍♂️'},
-		{title: 'Angry', emoji: '😡'}
+		{title: 'Hype', emoji: '🕺🏽'},
+		{title: 'Chill', emoji: '🧘🏽‍♂️'}
 	];
 	const allGenres = ['Alt-Rock', 'Hip-Hop', 'Indie', 'Pop', 'EDM', 'R&B', 'K-Pop', 'Latin', 'Country', 'Metal', 'Electronic', 'Chill'];
 	
@@ -20,20 +19,17 @@ const Mood = () => {
 	const setParams = (m) => {
 		let q;
 		switch(m) {
-			case 'Lit':
+			case 'Happy':
 				q = 'minValence=0.8';
 				break;
 			case 'Sad':
 				q = 'maxValence=0.3&maxEnergy=0.4';
 				break;
 			case 'Hype':
-				q = 'minEnergy=0.8';
+				q = 'minEnergy=0.7&minValence=0.7&minDanceability=0.5';
 				break;
 			case 'Chill':
 				q = 'maxEnergy=0.3&minValence=0.3';
-				break;
-			case 'Angry':
-				q = 'maxValence=0.3&minEnergy=0.8';
 				break;
 			default:
 				console.log('Hmmm.. not sure what happened here.');
@@ -59,9 +55,9 @@ const Mood = () => {
 
 			<div className="my-8">
 				<h2 className="heading mb-3 font-bold">Select Mood</h2>
-				<div className='grid grid-cols-2 md:grid-cols-5 gap-3'>
+				<div className='grid grid-cols-2 md:grid-cols-4 gap-3'>
 					{moods.map(m => 
-						<div className={`${mood?.mood===m.title ? 'bg-green-500' : 'bg-gray-900'} h-20 rounded-full flex justify-center items-center text-xl cursor-pointer hover:text-spotify shadow-lg transform transition-transform duration-200 hover:-translate-y-1`} key={m.title} onClick={() => setParams(m.title)}>
+						<div className={`${mood?.mood===m.title ? 'bg-green-500' : 'bg-gray-900'} h-20 rounded-full flex items-center justify-center text-xl cursor-pointer hover:text-spotify shadow-lg transform transition-transform duration-200 hover:-translate-y-1`} key={m.title} onClick={() => setParams(m.title)}>
 							<h2>{m.emoji}</h2>
 							&nbsp;
 							<h2>{m.title}</h2>
