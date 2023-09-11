@@ -2,7 +2,10 @@
 
 Spotistics allows anyone to log in see their Spotify statistics and receive mood-based recommendations ⚡️
 
-![Spotistics GIF](spotistics.gif)
+
+https://github.com/suitedaces/spotistics/assets/50865782/9a21e384-ccde-40ab-9602-cdc9b96e9998
+
+
 
 ## 🛠️ Tech Stack:
 - **MongoDB 🍃**: User data storage.
