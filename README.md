@@ -10,6 +10,7 @@ https://github.com/suitedaces/sonophile/assets/50865782/04a9d637-ce29-40c9-bdd9-
 - **React ⚛️**: UI development.
 - **Docker 🐳**: Containerization and deployment.
 - **Docker Compose 📦**: Multi-container Docker applications.
+- **Nginx 🌐**: Web server and reverse proxy.
 - **Node.js 🟢**: Backend runtime.
 - **TailwindCSS 🌬️**: UI styling.
 - **Vite ⚡**: Development & build tool.
