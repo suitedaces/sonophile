@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_API_URL=http://localhost:8888
+
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "8888:8888"
+    environment:
+      - CLIENT_ID=${CLIENT_ID}
+      - CLIENT_SECRET=${CLIENT_SECRET}
+      - REDIRECT_URI=http://localhost:8888/callback
+      - FRONTEND_URI=http://localhost:5173
+      - MONGO_URI=${MONGO_URI}
+
