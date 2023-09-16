@@ -25,7 +25,7 @@ export const LoginContent = () => {
             </div>
           </div>
           <div>
-            <p className="mr-5 text-2xl leading-normal font-bold md:text-7xl lg:text-6xl font-sans text-gray-800" style={{
+            <p className="mr-5 text-2xl leading-normal font-bold md:text-7xl lg:text-7xl font-sans text-gray-800" style={{
               // WebkitTextFillColor: '#1ED760',
               WebkitTextStrokeWidth: '0.5px',
               WebkitTextStrokeColor: '#191414',

@@ -14,7 +14,7 @@ export function Background() {
       let frame = 0;
       let flyBoxCount = 20;
       let flyBoxes = [];
-      let flyBoxPause = 200;
+      let flyBoxPause = 100;
       let flyBoxColors = [];
 
       p.setup = function () {

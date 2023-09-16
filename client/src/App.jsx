@@ -51,7 +51,7 @@ function App() {
                 </div>
             )}
             <footer className="bg-transparent ml-20 bottom-0 left-0 w-full text-center py-2">
-                <span className="text-gray-100">Built with ❤️ 4 all the <span className="text-green-400 font-bold">dawgz</span> by Ishan Nagpal</span>
+                <span className="text-gray-100">Built with ❤️ 4 all the <span className="text-green-400">dawgz</span> by <span className='bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 text-transparent bg-clip-text'>Ishan Nagpal</span></span>
             </footer>
         </div>
     );
