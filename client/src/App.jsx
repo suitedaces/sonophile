@@ -17,21 +17,20 @@ import Navbar from './components/Navbar';
 const queryClient = new QueryClient();
 
 function App() {
-
-  const [token, setToken] = useState(null);
+    const [token, setToken] = useState(null);
 
     useEffect(() => {
-      setToken(accessToken)
+        setToken(accessToken)
     }, []);
 
     return (
-        <div className="App bg-black">
+        <div className="overflow-x-hidden bg-black">
             {token ? (
                 <BrowserRouter>
-                  <Header /> 
-                  <Navbar />
+                    <Header />
+                    <Navbar />
                     <QueryClientProvider client={queryClient}>
-                        <div className='px-8 lg:ml-48 lg:px-20 lg:py-6  text-gray-100 min-h-screen overflow-hidden'>
+                        <div className="px-8 lg:ml-48 lg:px-20 lg:py-6 text-gray-100 min-h-screen">
                             <Routes>
                                 <Route path="/" element={<Home />} />
                                 <Route path="/artist/:id" element={<Artist />} />
@@ -51,7 +50,10 @@ function App() {
                 </div>
             )}
             <footer className="bg-transparent ml-20 bottom-0 left-0 w-full text-center py-2">
-                <span className="text-gray-100">Built with ❤️ 4 all the <span className="text-green-400">dawgz</span> by <span className='bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 text-transparent bg-clip-text'>Ishan Nagpal</span></span>
+                <span className="text-gray-100">Built with ❤️ 4 all the 
+                    <span className="text-green-400"> dawgz</span> by 
+                    <a target="blank" href="https://twitter.com/ishanxnagpal" className='bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 text-transparent bg-clip-text text-lg'> Ishan Nagpal</a>
+                </span>
             </footer>
         </div>
     );

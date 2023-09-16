@@ -21,13 +21,19 @@ const LOCALSTORAGE_VALUES = {
  * and now is greater than the expiration time which is 3600 sec (1 hour)
  * @returns {boolean} Wheter or not the access token in localStorage has expired 
  */
-const hasTokenExpired = () => {
+ const hasTokenExpired = () => {
     const { accessToken, timestamp, expireTime } = LOCALSTORAGE_VALUES;
     if (!accessToken || !timestamp) {
-        return false
+        return false;
     }
-    const millisecondsElapsed = Date.now() - Number(timestamp); // Get the elapsed time by subtracting the current timestamp to the timestamp that the accessToken has been created on the localStorage.
-    return (millisecondsElapsed / 1000) > Number(expireTime)    // Convert the elapse milisec to sec and compare to the expireTime (3600 sec)
+    const millisecondsElapsed = Date.now() - Number(timestamp);
+    const tokenExpired = (millisecondsElapsed / 1000) > Number(expireTime);
+
+    if (tokenExpired) {
+        logOut();
+    }
+
+    return tokenExpired;
 }
 
 /**
@@ -57,7 +63,7 @@ const refreshToken = async () => {
 
         // Go to 'refresh_token' endpoint or route in our node app where we can get a response of "data" which contains new values
         //  of access and refresh_token, token_type, token_expiry in 3600 seconds, and the scope
-        const { data } = await axios.get(`/refresh_token?refresh_token=${LOCALSTORAGE_VALUES.refreshToken}`)
+        const { data } = await axios.get(`/api/refresh_token?refresh_token=${LOCALSTORAGE_VALUES.refreshToken}`)
 
         // update the localStorage using the response data from refresh_token endpoint
         window.localStorage.setItem(LOCALSTORAGE_KEYS.accessToken, data.access_token)
@@ -124,6 +130,21 @@ const headers = {
     'Content-type': 'application/json',
     'Accept': 'application/json',
 };
+
+// Response interceptor
+axios.interceptors.response.use(
+    response => {
+        // If the response is successful, just return it
+        return response;
+    },
+    error => {
+        // If the error status is 401 Unauthorized, log out the user
+        if (error.response && error.response.status === 401) {
+            logOut();
+        }
+        return Promise.reject(error);
+    }
+);
 
 // User API Calls
 export const getUser = () => axios.get('me', { headers });
