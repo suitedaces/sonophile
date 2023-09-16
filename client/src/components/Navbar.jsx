@@ -39,7 +39,7 @@ function Navbar() {
       {userProfile && (
         <div className="hidden lg:flex flex-col items-center mt-4 absolute bottom-4 left-1/2 transform -translate-x-1/2">
           <img src={userProfile.images[0]?.url} alt="User Profile" className="w-12 h-12 rounded-full object-cover" />
-          <p className="mt-2 text-md">{userProfile.display_name}</p>
+          <p className="mt-2 text-md bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 text-transparent bg-clip-text text-md">{userProfile.display_name}</p>
         </div>
       )}
     </div>
