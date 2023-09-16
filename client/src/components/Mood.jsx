@@ -10,7 +10,7 @@ const Mood = () => {
 		{title: 'Hype', emoji: '🕺🏽'},
 		{title: 'Chill', emoji: '🧘🏽‍♂️'}
 	];
-	const allGenres = ['Alt-Rock', 'Hip-Hop', 'Indie', 'Pop', 'EDM', 'R&B', 'K-Pop', 'Latin', 'Country', 'Metal', 'Electronic', 'Chill'];
+	const allGenres = ['Alt-Rock', 'Hip-Hop', 'Indie', 'Pop', 'EDM', 'R&B', 'K-Pop', 'Latin', 'Country', 'Metal', 'Electronic'];
 	
 	const [genre, setGenre] = useState(null);
 	const [mood, setMood] = useState(null);
@@ -92,7 +92,7 @@ const Mood = () => {
 					{rex.tracks.map(song => 
 						<div className='flex items-start pb-5' key={song.id || song.name}>
 							<iframe 
-								style={{ borderRadius: '12px'}}
+								style={{ borderRadius: '12px' }}
 								src={`https://open.spotify.com/embed/track/${song.id}`}
 								width="100%" 
 								height="152" 

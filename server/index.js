@@ -10,9 +10,6 @@ const __dirname = dirname(__filename);
 
 const app = express();
 
-// Priority serve any static files.
-app.use(express.static(path.resolve(__dirname, './client/build')));
-
 app.use('/', router);
 
 app.listen(PORT, '0.0.0.0', () => {
