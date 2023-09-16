@@ -3,38 +3,8 @@ import querystring from "querystring";
 import { User } from "./mongoDb.js"
 import { CLIENT_ID, CLIENT_SECRET, REDIRECT_URI } from "./config.js";
 
-export const getUsersTopArtistsByRange = async (range, access_token) => {
-    return axios.get(`https://api.spotify.com/v1/me/top/artists?time_range=${range}&limit=50`, {
-        headers: {
-            'Authorization': `Bearer ${access_token}`
-        }
-    });
-};
 
-export const getUsersTopTracksByRange = async (range, access_token) => {
-    return axios.get(`https://api.spotify.com/v1/me/top/tracks?time_range=${range}&limit=50`, {
-        headers: {
-            'Authorization': `Bearer ${access_token}`
-        }
-    });
-};
-
-export const handleTokenExchange = async (code) => {
-    return axios({
-        method: 'post',
-        url: 'https://accounts.spotify.com/api/token',
-        data: querystring.stringify({
-            code: code,
-            redirect_uri: REDIRECT_URI,
-            grant_type: 'authorization_code'
-        }),
-        headers: {
-            'content-type': 'application/x-www-form-urlencoded',
-            Authorization: `Basic ${new Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`).toString('base64')}`
-        },
-    });
-};
-
+// User-related utility functions
 export const fetchUserProfile = async (access_token) => {
     return axios.get('https://api.spotify.com/v1/me', {
         headers: {
@@ -72,6 +42,22 @@ export const fetchUserTopData = async (access_token) => {
     return currentLoginData;
 };
 
+export const getUsersTopArtistsByRange = async (range, access_token) => {
+    return axios.get(`https://api.spotify.com/v1/me/top/artists?time_range=${range}&limit=50`, {
+        headers: {
+            'Authorization': `Bearer ${access_token}`
+        }
+    });
+};
+
+export const getUsersTopTracksByRange = async (range, access_token) => {
+    return axios.get(`https://api.spotify.com/v1/me/top/tracks?time_range=${range}&limit=50`, {
+        headers: {
+            'Authorization': `Bearer ${access_token}`
+        }
+    });
+};
+
 export const updateOrCreateUser = async (spotifyId, name, currentLoginData) => {
     const existingUser = await User.findOne({ spotifyId: spotifyId });
 
@@ -90,7 +76,7 @@ export const updateOrCreateUser = async (spotifyId, name, currentLoginData) => {
 
 
 
-
+// random
 export const generateRandomString = length => {
     let text = '';
     const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -113,3 +99,20 @@ export const formatDuration = ms => {
     const seconds = Math.floor(((ms % 60000) / 1000));
     return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
 }
+
+
+export const handleTokenExchange = async (code) => {
+    return axios({
+        method: 'post',
+        url: 'https://accounts.spotify.com/api/token',
+        data: querystring.stringify({
+            code: code,
+            redirect_uri: REDIRECT_URI,
+            grant_type: 'authorization_code'
+        }),
+        headers: {
+            'content-type': 'application/x-www-form-urlencoded',
+            Authorization: `Basic ${new Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`).toString('base64')}`
+        },
+    });
+};
