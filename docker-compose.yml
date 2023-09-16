@@ -19,7 +19,7 @@ services:
     environment:
       - CLIENT_ID=${CLIENT_ID}
       - CLIENT_SECRET=${CLIENT_SECRET}
-      - REDIRECT_URI=http://localhost:8888/callback
+      - REDIRECT_URI=http://localhost:8888/api/callback
       - FRONTEND_URI=http://localhost:5173
       - MONGO_URI=${MONGO_URI}
 

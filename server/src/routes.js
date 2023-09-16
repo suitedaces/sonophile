@@ -8,7 +8,7 @@ const router = express.Router();
 
 const stateKey = 'spotify_auth_state';
 
-router.get('/login', (req, res) => {
+router.get('/api/login', (req, res) => {
     const state = generateRandomString(16);
     res.cookie(stateKey, state);
 
@@ -38,7 +38,7 @@ router.get('/login', (req, res) => {
     res.redirect(`https://accounts.spotify.com/authorize?${queryParams}`);
 });
 
-router.get("/callback", async (req, res) => {
+router.get("/api/callback", async (req, res) => {
     const code = req.query.code || null;
 
     try {
@@ -70,7 +70,7 @@ router.get("/callback", async (req, res) => {
 });
 
 
-router.get('/refresh_token', (req, res) => {
+router.get('/api/refresh_token', (req, res) => {
     const { refresh_token } = req.query;
 
     axios({
