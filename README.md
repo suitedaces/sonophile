@@ -8,11 +8,11 @@ https://github.com/suitedaces/spotistics/assets/50865782/9a21e384-ccde-40ab-9602
 - **MongoDB 🍃**: User data storage.
 - **Express.js 🚂**: Backend framework.
 - **React ⚛️**: UI development.
+- **Docker 🐳**: Containerization and deployment.
+- **Docker Compose 📦**: Multi-container Docker applications.
 - **Node.js 🟢**: Backend runtime.
 - **TailwindCSS 🌬️**: UI styling.
 - **Vite ⚡**: Development & build tool.
-- **Docker 🐳**: Containerization and deployment.
-- **Docker Compose 📦**: Multi-container Docker applications.
 
 ## 🌟 Features:
 - 🎭 **Mood-based Song Recommendation**: Get Spotify tracks recommendations based on your current mood and preferred genre.
