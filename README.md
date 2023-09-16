@@ -1,8 +1,8 @@
 # Sonophile 👨🏽‍🎤
 
-Sonophile is your gateway to dive deep into your Spotify listening habits and discover mood-based recommendations tailored just for you 🎶.
+Sonophile is your gateway to dive deep into your Spotify listening habits and discover **mood-based recommendations** tailored just for you 🎶.
 
-https://github.com/suitedaces/spotistics/assets/50865782/9a21e384-ccde-40ab-9602-cdc9b96e9998
+https://github.com/suitedaces/sonophile/assets/50865782/04a9d637-ce29-40c9-bdd9-c43d2df669ff
 
 ## 🛠️ Tech Stack:
 - **MongoDB 🍃**: User data storage.
