@@ -38,6 +38,7 @@ git clone https://github.com/suitedaces/sonophile.git
 cd sonophile
 docker-compose up -d --build
 ```
+5. Navigate to `http://localhost/`
 
 ## 🤝 Contribute:
 Open an issue or submit a PR.
