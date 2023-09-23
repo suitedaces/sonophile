@@ -21,16 +21,3 @@ export const convertMS = ( milliseconds ) => {
 export const simplifyDate = (date) => {
 	return date.split('T')[0]
 }
-
-export default async function checkToken() {
-	try {
-		const response = await axios.get(import.meta.env.VITE_API_URL + '/api/checkToken');
-		if (response.data.tokenExists) {
-			setToken(true);  
-		} else {
-			setToken(null);
-		}
-	} catch (error) {
-		console.error("Error checking token:", error);
-	}
-}

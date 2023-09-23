@@ -10,6 +10,7 @@ services:
     volumes:
       - ./nginx.prod.conf:/etc/nginx/conf.d/default.conf
       - /etc/letsencrypt:/etc/letsencrypt:ro
+      - sonophile-client:/sonophile/dist  # Mount the 'dist' directory
     depends_on:
       - client
       - server
@@ -18,7 +19,7 @@ services:
     container_name: sonophile-client
     build:
       context: ./client
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.prod
     environment:
       - VITE_API_URL=http://${DOMAIN_NAME}
 
