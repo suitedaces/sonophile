@@ -1,16 +1,12 @@
-FROM node:18-alpine
+# Use a Node.js image for building the client
+FROM node:18 as build
 
-WORKDIR /sonophile
+WORKDIR /app
 
-COPY package.json .
+COPY ./package.json ./package-lock.json ./
 
-#Installing all the tools and dependencies in the container
 RUN npm install
 
 COPY . .
 
-#Exposing the container to run on this port 5173
-EXPOSE 5173
-
-# Command to start the Docker container for the frontend React+Vite application
-CMD ["npm", "run", "dev"]
+RUN npm run build

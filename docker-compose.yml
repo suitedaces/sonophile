@@ -1,25 +1,13 @@
 version: '3'
 
 services:
-  nginx:
-    image: nginx:alpine
-    container_name: sonophile-nginx
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - ./nginx.conf:/etc/nginx/conf.d/default.conf
-    depends_on:
-      - client
-      - server
-
   client:
     container_name: sonophile-client
     build:
       context: ./client
       dockerfile: Dockerfile
     environment:
-      - VITE_API_URL=http://${DOMAIN_NAME}
+      - VITE_API_URL=http://localhost
 
   server:
     container_name: sonophile-server
@@ -29,6 +17,20 @@ services:
     environment:
       - CLIENT_ID=${CLIENT_ID}
       - CLIENT_SECRET=${CLIENT_SECRET}
-      - REDIRECT_URI=http://${DOMAIN_NAME}/api/callback
-      - FRONTEND_URI=http://${DOMAIN_NAME}
+      - REDIRECT_URI=http://localhost/api/callback
+      - FRONTEND_URI=http://localhost
       - MONGO_URI=${MONGO_URI}
+    ports:
+      - "8888:8888" # Expose the server on port 8888
+
+  nginx:
+    image: nginx:alpine
+    container_name: sonophile-nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./client/dist:/usr/share/nginx/html
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - client
+      - server

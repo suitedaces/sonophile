@@ -1,29 +1,25 @@
 version: '3'
 
 services:
-  nginx:
+  client:
+    container_name: sonophile-client
     build:
-      context: .  # Use the current directory as the build context
-      dockerfile: Dockerfile.prod  # Use the Dockerfile with the combined NGINX and client
-    container_name: sonophile-nginx
+      context: ./
+      dockerfile: Dockerfile.prod-client
+    environment:
+      - VITE_API_URL=https://sonophile.xyz # 
     ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - ./nginx.prod.conf:/etc/nginx/conf.d/default.conf
-      - /etc/letsencrypt:/etc/letsencrypt:ro
-    depends_on:
-      - server
+      - "80:80"  # Expose port 80 for HTTP
+      - "443:443"  # Expose port 443 for HTTPS
 
   server:
     container_name: sonophile-server
     build:
       context: ./server
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.prod-server
     environment:
       - CLIENT_ID=${CLIENT_ID}
       - CLIENT_SECRET=${CLIENT_SECRET}
-      - REDIRECT_URI=http://${DOMAIN_NAME}/api/callback
-      - FRONTEND_URI=http://${DOMAIN_NAME}
+      - REDIRECT_URI=https://sonophile.xyz/api/callback
+      - FRONTEND_URI=https://sonophile.xyz
       - MONGO_URI=${MONGO_URI}
-
