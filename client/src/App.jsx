@@ -33,6 +33,7 @@ function App() {
                         <div className="px-8 lg:ml-48 lg:px-20 lg:py-6 text-gray-100 min-h-screen">
                             <Routes>
                                 <Route path="/" element={<Home />} />
+                                <Route path="/home" element={<Home />} />
                                 <Route path="/artist/:id" element={<Artist />} />
                                 <Route path="/artist/:id/album/:albumId" element={<Album />} />
                                 <Route path="/artist" element={<TopArtists />} />
