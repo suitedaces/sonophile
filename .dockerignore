@@ -1,2 +1,6 @@
 node_modules
 *.log
+README.md
+dist
+package-lock.json
+.git
