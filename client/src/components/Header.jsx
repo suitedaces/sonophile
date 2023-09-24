@@ -6,7 +6,7 @@ const Header = () => {
         <div className='bg-black overflow-hidden'>
             <div className="md:ml-60 ml-6 pt-4 md:pt-8 flex flex-wrap justify-between items-center">
                 <div className="text-xl md:text-5xl font-bold font-sans hover:shadow-lg hover:shadow-neon mt-4 mb-4 md:mb-0">
-                    <a href={`/home`} className="text-green-500">Sonophile</a> 👨🏽‍🎤
+                    <a href={`/`} className="text-green-500">Sonophile</a> 👨🏽‍🎤
                 </div>
 
                 <div className='flex items-center md:pr-20 pr-5 text-gray-200'>
