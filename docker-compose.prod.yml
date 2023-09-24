@@ -8,9 +8,8 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - ./nginx.prod.conf:/etc/nginx/conf.d/default.conf
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
       - /etc/letsencrypt:/etc/letsencrypt:ro
-      - sonophile-client:/sonophile/dist  # Reference the named volume here
     depends_on:
       - client
       - server
@@ -19,7 +18,7 @@ services:
     container_name: sonophile-client
     build:
       context: ./client
-      dockerfile: Dockerfile.prod
+      dockerfile: Dockerfile
     environment:
       - VITE_API_URL=http://${DOMAIN_NAME}
 
@@ -34,6 +33,3 @@ services:
       - REDIRECT_URI=http://${DOMAIN_NAME}/api/callback
       - FRONTEND_URI=http://${DOMAIN_NAME}
       - MONGO_URI=${MONGO_URI}
-
-volumes:
-  sonophile-client:  # Define a named volume for the 'sonophile-client' container
