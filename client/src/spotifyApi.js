@@ -70,7 +70,7 @@ const refreshToken = async () => {
     }
 }
 
-const getAccessToken = () => {
+export const getAccessToken = () => {
     const queryString = window.location.search; // returns the url after "?"
     const urlParams = new URLSearchParams(queryString); // converts the url to an object
     const queryParams = {
@@ -106,7 +106,7 @@ const getAccessToken = () => {
     return false;
 }
 
-export const accessToken = getAccessToken();
+const accessToken = getAccessToken();
 
 
 /**

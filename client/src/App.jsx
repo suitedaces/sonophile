@@ -9,7 +9,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import Login from './pages/Login';
 import Album from './pages/Album';
-import { accessToken } from './spotifyApi';
+import { getAccessToken } from './spotifyApi';
 import { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Navbar from './components/Navbar';
@@ -20,7 +20,7 @@ function App() {
     const [token, setToken] = useState(null);
 
     useEffect(() => {
-        setToken(accessToken)
+        setToken(getAccessToken())
     }, []);
 
     return (

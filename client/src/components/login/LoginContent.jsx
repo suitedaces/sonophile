@@ -20,7 +20,7 @@ export const LoginContent = () => {
               <a
                 href={`/api/login`}
                 className="ml-12 center bg-green-500 hover:bg-green-700 text-gray-100 font-bold py-4 px-8 rounded-full font-sans shadow-md border-1 border-black shadow-lg z-100 relative">
-                Launch App
+                Login with Spotify
               </a>
             </div>
           </div>
