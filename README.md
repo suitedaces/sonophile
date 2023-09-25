@@ -11,6 +11,7 @@ https://github.com/suitedaces/sonophile/assets/50865782/04a9d637-ce29-40c9-bdd9-
 - **Docker 🐳**: Containerization and deployment.
 - **Docker Compose 📦**: Multi-container Docker applications.
 - **Nginx 🌐**: Web server and reverse proxy.
+- **AWS EC2 ☁️**: Cloud computing instance for deployment.
 - **Node.js 🟢**: Backend runtime.
 - **TailwindCSS 🌬️**: UI styling.
 - **Vite ⚡**: Development & build tool.
