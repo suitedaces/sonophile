@@ -2,7 +2,7 @@
 
 Sonophile is your gateway to dive deep into your Spotify listening habits and discover **mood-based recommendations** tailored just for you 🎶.
 
-**NOTE:** You won't be able to access the app thru sonophile.xyz unless whitelisted, please email ishan@gosurf.ai for access. 
+**NOTE:** You won't be able to access the app thru sonophile.xyz unless whitelisted, please email ishan@codechimp.xyz for access. 
 
 https://github.com/suitedaces/sonophile/assets/50865782/04a9d637-ce29-40c9-bdd9-c43d2df669ff
 
