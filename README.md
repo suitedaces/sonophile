@@ -2,7 +2,7 @@
 
 Sonophile is your gateway to dive deep into your Spotify listening habits and discover **mood-based recommendations** tailored just for you 🎶.
 
-**NOTE:** You won't be able to access the app thru sonophile.xyz unless whitelisted, please email ishan@gosurf.ai for access. 
+**NOTE:** You won't be able to access the app thru sonophile.xyz unless whitelisted, please email ishannagpal554@gmail.com for access. 
 
 https://github.com/suitedaces/sonophile/assets/50865782/04a9d637-ce29-40c9-bdd9-c43d2df669ff
 
@@ -29,6 +29,7 @@ https://github.com/suitedaces/sonophile/assets/50865782/04a9d637-ce29-40c9-bdd9-
 ```
 git clone https://github.com/suitedaces/sonophile.git
 ```
+
 3. Set up the following environment variables in a `.env` file:
 
 - `CLIENT_ID`: Your Spotify Client ID.
@@ -36,11 +37,13 @@ git clone https://github.com/suitedaces/sonophile.git
 - `REDIRECT_URI`: Your Spotify Redirect URI.
 - `FRONTEND_URI`: Frontend URI for the application.
 - `MONGO_URI`: MongoDB connection string.
+
 4. Run the following commands:
 ```
 cd sonophile
 docker-compose up -d --build
 ```
+
 5. Navigate to `http://localhost/`
 
 ## 🤝 Contribute:
