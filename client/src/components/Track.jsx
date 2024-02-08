@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { getSong, getSongFeatures } from '../spotifyApi';
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend, Cell } from 'recharts';
+import { RadarChart, Radar, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Tooltip, ResponsiveContainer, Legend } from 'recharts';
 
 
 const Song = () => {
@@ -13,22 +13,7 @@ const Song = () => {
     { name: 'Danceability', value: features.danceability * 100, description: 'Danceability describes how suitable a track is for dancing.' },
     { name: 'Acousticness', value: features.acousticness * 100, description: 'High value represents high confidence that the track is acoustic.' },
     { name: 'Energy', value: features.energy * 100, description: 'Energy represents a perceptual measure of intensity and activity. Typically, energetic tracks feel fast, loud, and noisy.' },
-    { name: 'Instrumentalness', value: features.instrumentalness * 100, description: 'Predicts whether a track contains no vocals. “Ooh” and “aah” sounds are treated as instrumental in this context. Rap or spoken word tracks are clearly “vocal”. High value represents the greater likelihood the track contains no vocal content.' },
-    { name: 'Liveness', value: features.liveness * 100, description: 'Detects the presence of an audience in the recording. Higher liveness values represent an increased probability that the track was performed live.' },
-    { name: 'Valence', value: features.valence * 100, description: 'A measure of the musical positiveness conveyed by a track. Tracks with high valence sound more positive (e.g. happy, cheerful, euphoric), while tracks with low valence sound more negative (e.g. sad, depressed, angry).' },
-    { name: 'Speechiness', value: features.speechiness * 100, description: 'Speechiness detects the presence of spoken words in a track. The more exclusively speech-like the recording (e.g. talk show, audio book, poetry), the higher the attribute value.' }
-  ];
-
-  const COLORS = [
-    '#F8B195',
-    '#F67280',
-    '#C06C84',
-    '#6C5B7B',
-    '#355C7D',
-    '#99B898',
-    '#FECEAB'
-];
-
+    { name: 'Instrumentalness', value: features.instrumentalness * 100, description: 'Predicts whether a track contains no vocals. 
 
   useEffect(() => {
     window.scrollTo(0,0)
@@ -59,9 +44,11 @@ const Song = () => {
             <h3 className='text-2xl heading mb-8'>Track Features</h3>
             <div>
               <ResponsiveContainer width="100%" height={400}>
-                <BarChart data={featuresData}>
-                  <XAxis dataKey="name" />
-                  <YAxis />
+                <RadarChart cx="50%" cy="50%" outerRadius="80%" data={featuresData}>
+                  <PolarGrid />
+                  <PolarAngleAxis dataKey="name" />
+                  <PolarRadiusAxis angle={30} domain={[0, 100]} />
+                  <Radar name="Features" dataKey="value" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
                   <Tooltip 
                     cursor={{ fill: 'rgba(255, 255, 255, 0.2)' }} 
                     wrapperStyle={{ backgroundColor: '#6C5B7B', borderRadius: '5px' }}
@@ -69,12 +56,7 @@ const Song = () => {
                     itemStyle={{ color: '#C06C84' }}
                   />
                   <Legend />
-                  <Bar dataKey="value" barSize={150}>
-                    {featuresData.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={COLORS[index]} />
-                    ))}
-                  </Bar>
-                </BarChart>
+                </RadarChart>
               </ResponsiveContainer>
             </div>
             <div className='mt-16 '>
